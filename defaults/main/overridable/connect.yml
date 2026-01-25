@@ -1,0 +1,29 @@
+# OUTGOING TRAFFIC
+
+# coordination server to use for Tailscale control plane (e.g. headscale)
+cfg_tailscale_coordination_server_url: "https://controlplane.tailscale.com"
+
+# route this device's internet traffic through a best/suggested exit node
+# at least one device on the Tailnet must be acting as an exit node
+cfg_tailscale_use_exit_node: false
+
+# when using a suggested exit node, allow access to the local LAN
+cfg_tailscale_use_lan_when_using_exit_node: false
+
+# accept subnet routes advertised by other devices on the Tailnet
+cfg_tailscale_use_subnet_routes: false
+
+# INCOMING TRAFFIC
+
+# advertise this device as an exit node (incompatible with shields_up)
+cfg_tailscale_advertise_exit_node: false
+
+# advertise this device as an ssh server (incompatible with shields_up)
+cfg_tailscale_advertise_ssh_server: false
+
+# advertise this device as an app connector (incompatible with shields_up)
+cfg_tailscale_advertise_app_connector: false
+
+# block all incoming Tailscale traffic (except status pings, etc)
+cfg_tailscale_shields_up: false
+

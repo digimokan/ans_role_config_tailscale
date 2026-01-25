@@ -1,0 +1,18 @@
+- name: "Run all role tasks for Arch Linux"
+  ansible.builtin.include_tasks: run_all_tasks.yml
+  vars:
+    cfg_tailscale_system_package_name: "{{ cfg_tailscale_archlinux_package_name }}"
+    cfg_tailscale_system_service_name: "{{ cfg_tailscale_linux_service_name }}"
+    cfg_tailscale_system_statedir: >-
+      {{ cfg_tailscale_override_statedir | default(cfg_tailscale_linux_statedir) }}
+  when: ansible_os_family == "Archlinux"
+
+- name: "Run all role tasks for FreeBSD"
+  ansible.builtin.include_tasks: run_all_tasks.yml
+  vars:
+    cfg_tailscale_system_package_name: "{{ cfg_tailscale_freebsd_package_name }}"
+    cfg_tailscale_system_service_name: "{{ cfg_tailscale_freebsd_service_name }}"
+    cfg_tailscale_system_statedir: >-
+      {{ cfg_tailscale_override_statedir | default(cfg_tailscale_freebsd_statedir) }}
+  when: ansible_os_family == "FreeBSD"
+

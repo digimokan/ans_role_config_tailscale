@@ -1,0 +1,25 @@
+- name: "Configure service options for Linux"
+  ansible.builtin.include_tasks: linux.yml
+  when: ansible_system == "Linux"
+
+- name: "Configure service options for FreeBSD"
+  ansible.builtin.include_tasks: freebsd.yml
+  when: ansible_os_family == "FreeBSD"
+
+- name: "Create root-owned Tailscale statedir, at {{ cfg_tailscale_system_statedir }}"
+  ansible.builtin.file:
+    path: "{{ cfg_tailscale_system_statedir }}"
+    state: directory
+  become: true
+  become_user: root
+  notify: restart_tailscale_service
+
+- name: "Ensure '{{ cfg_tailscale_system_service_name }}' service is started, and enable it to start at boot"
+  ansible.builtin.service:
+    name: "{{ cfg_tailscale_system_service_name }}"
+    state: started
+    enabled: true
+  become: true
+  become_user: root
+  notify: restart_tailscale_service
+

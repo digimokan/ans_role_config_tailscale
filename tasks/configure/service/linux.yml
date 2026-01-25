@@ -1,0 +1,13 @@
+- name: "Set tailscaled options in '{{ cfg_tailscale_linux_config_file_path }}'"
+  ansible.builtin.lineinfile:
+    path: "{{ cfg_tailscale_linux_config_file_path }}"
+    regexp: >-
+      ^FLAGS="
+    line: >-
+      FLAGS="--statedir='{{ cfg_tailscale_system_statedir }}'"
+    create: false
+    state: present
+    backup: true
+  become: true
+  become_user: root
+

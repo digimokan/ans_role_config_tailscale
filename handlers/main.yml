@@ -1,0 +1,8 @@
+- name: "Restart system '{{ cfg_tailscale_system_service_name }}' service"
+  ansible.builtin.service:
+    name: "{{ cfg_tailscale_system_service_name }}"
+    state: restarted
+  become: true
+  become_user: root
+  listen: restart_tailscale_service
+

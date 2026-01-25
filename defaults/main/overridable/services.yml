@@ -1,0 +1,4 @@
+# Tailscale service names
+cfg_tailscale_linux_service_name: 'tailscaled'
+cfg_tailscale_freebsd_service_name: 'tailscaled'
+

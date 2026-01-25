@@ -1,0 +1,4 @@
+# Tailscale package names
+cfg_tailscale_archlinux_package_name: 'tailscale'
+cfg_tailscale_freebsd_package_name: 'tailscale'
+

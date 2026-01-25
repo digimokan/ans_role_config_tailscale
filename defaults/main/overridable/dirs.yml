@@ -1,0 +1,11 @@
+# main system Tailscale configuration file path
+cfg_tailscale_linux_config_file_path: '/etc/default/tailscaled'
+cfg_tailscale_freebsd_rc_conf_file_path: '/etc/rc.conf'
+
+# Tailscale statedir - owned by root (See https://tailscale.com/kb/1278/tailscaled)
+# If it doesn't exist, this directory will be created and owned by root
+# Use override_statedir if not empty, else fall back to linux/freebsd/etc statedir
+cfg_tailscale_override_statedir: ''
+cfg_tailscale_linux_statedir: '/var/lib/tailscale'
+cfg_tailscale_freebsd_statedir: '/var/db/tailscale'
+

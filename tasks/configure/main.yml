@@ -1,0 +1,6 @@
+- name: "Start and enable the Tailscale service"
+  ansible.builtin.include_tasks: service/main.yml
+
+- name: "Connect this device to the Tailnet as a user-facing device"
+  ansible.builtin.include_tasks: connect/main.yml
+

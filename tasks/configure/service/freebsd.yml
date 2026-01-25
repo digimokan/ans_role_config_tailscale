@@ -1,0 +1,9 @@
+- name: "Set statedir to '{{ cfg_tailscale_system_statedir }}' in {{ cfg_tailscale_freebsd_rc_conf_file_path }}"
+  community.general.sysrc:
+    path: "{{ cfg_tailscale_freebsd_rc_conf_file_path }}"
+    name: "tailscaled_state_dir"
+    value: "{{ cfg_tailscale_system_statedir }}"
+    state: present
+  become: true
+  become_user: root
+

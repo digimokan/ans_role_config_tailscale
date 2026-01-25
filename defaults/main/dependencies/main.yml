@@ -1,0 +1,5 @@
+# use pre-generated auth key to login to the Tailnet as a user-facing device
+#   * login is persistent, stored in cfg_tailscale_system_statedir
+#   * ref: https://tailscale.com/kb/1226/tailnet-lock#add-a-node-using-a-pre-signed-auth-key
+cfg_tailscale_login_authkey: ''
+

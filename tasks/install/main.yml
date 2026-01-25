@@ -1,0 +1,7 @@
+- name: "Install the '{{ cfg_tailscale_system_package_name }}' package"
+  ansible.builtin.package:
+    name: "{{ cfg_tailscale_system_package_name }}"
+    state: present
+  become: true
+  become_user: root
+

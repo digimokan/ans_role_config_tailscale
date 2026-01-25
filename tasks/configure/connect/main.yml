@@ -1,0 +1,17 @@
+- name: "Connect this device to Tailnet, using the provided auth key"
+  ansible.builtin.command:
+    argv:
+      - "tailscale up"
+      - "--reset"
+      - "--login-server={{ cfg_tailscale_coordination_server_url }}"
+      - "--auth-key={{ cfg_tailscale_login_authkey }}"
+      - "--exit-node={{ 'auto-any' if cfg_tailscale_use_exit_node else '' }}"
+      - "{{ cfg_tailscale_use_lan_when_using_exit_node | ternary('--exit-node-allow-lan-access', omit) }}"
+      - "{{ cfg_tailscale_use_subnet_routes | ternary('--accept-routes', omit) }}"
+      - "{{ cfg_tailscale_advertise_exit_node | ternary('--advertise-exit-node', omit) }}"
+      - "{{ cfg_tailscale_advertise_ssh_server | ternary('--ssh', omit) }}"
+      - "{{ cfg_tailscale_advertise_app_connector | ternary('--advertise-connector', omit) }}"
+      - "{{ cfg_tailscale_shields_up | ternary('--shields-up', omit) }}"
+  become: true
+  become_user: root
+
