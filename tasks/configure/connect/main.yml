@@ -1,17 +1,17 @@
 - name: "Connect this device to Tailnet, using the provided auth key"
   ansible.builtin.command:
-    argv:
-      - "tailscale up"
-      - "--reset"
-      - "--login-server={{ cfg_tailscale_coordination_server_url }}"
-      - "--auth-key={{ cfg_tailscale_login_authkey }}"
-      - "--exit-node={{ 'auto-any' if cfg_tailscale_use_exit_node else '' }}"
-      - "{{ cfg_tailscale_use_lan_when_using_exit_node | ternary('--exit-node-allow-lan-access', omit) }}"
-      - "{{ cfg_tailscale_use_subnet_routes | ternary('--accept-routes', omit) }}"
-      - "{{ cfg_tailscale_advertise_exit_node | ternary('--advertise-exit-node', omit) }}"
-      - "{{ cfg_tailscale_advertise_ssh_server | ternary('--ssh', omit) }}"
-      - "{{ cfg_tailscale_advertise_app_connector | ternary('--advertise-connector', omit) }}"
-      - "{{ cfg_tailscale_shields_up | ternary('--shields-up', omit) }}"
+    cmd: >-
+      tailscale up
+      --reset=true
+      --login-server {{ cfg_tailscale_coordination_server_url | ansible.builtin.quote }}
+      --auth-key {{ cfg_tailscale_login_authkey | ansible.builtin.quote }}
+      --exit-node {{ 'auto-any' if cfg_tailscale_use_exit_node else '' | ansible.builtin.quote }}
+      --exit-node-allow-lan-access={{ 'true' if cfg_tailscale_use_lan_when_using_exit_node else 'false' }}
+      --accept-routes={{ 'true' if cfg_tailscale_use_subnet_routes else 'false' }}
+      --advertise-exit-node={{ 'true' if cfg_tailscale_advertise_exit_node else 'false' }}
+      --ssh={{ 'true' if cfg_tailscale_advertise_ssh_server else 'false' }}
+      --advertise-connector={{ 'true' if cfg_tailscale_advertise_app_connector else 'false' }}
+      --shields-up={{ 'true' if cfg_tailscale_shields_up else 'false' }}
   become: true
   become_user: root
 
