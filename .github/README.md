@@ -1,6 +1,6 @@
 # ans_role_config_tailscale
 
-Configure a machine as a user-facing device on a Tailnet.
+Configure machine as a user-facing device on a Tailnet.
 
 [![Release](https://img.shields.io/github/release/digimokan/ans_role_config_tailscale.svg?label=release)](https://github.com/digimokan/ans_role_config_tailscale/releases/latest "Latest Release Notes")
 [![License](https://img.shields.io/badge/license-MIT-blue.svg?label=license)](LICENSE.md "Project License")
@@ -109,7 +109,7 @@ a server), define a `server` tag.
    - hosts: localhost
      connection: local
      tasks:
-       - name: "Configure a machine as a user-facing device on a Tailnet"
+       - name: "Configure machine as a user-facing device on a Tailnet"
          ansible.builtin.include_role:
            name: ans_role_config_tailscale
          vars:
