@@ -27,12 +27,12 @@ Configure machine as a user-facing device on a Tailnet.
 
 Note that there are two kind of devices on a Tailnet: _user-facing devices_, and
 _service-providing_ devices (see
-[docs](https://tailscale.com/kb/1068/tags#use-cases):
+[docs](https://tailscale.com/kb/1068/tags#use-cases)):
 
 * _User-facing devices_ associate with an authenticated Tailnet user.
 * _Service-providing_ devices associate with a
-  tag](https://tailscale.com/kb/1068/tags) (and optionally use
-  auth keys](https://tailscale.com/kb/1085/auth-keys) for connecting to the
+  [tag](https://tailscale.com/kb/1068/tags) (and optionally use
+  [auth keys](https://tailscale.com/kb/1085/auth-keys) for connecting to the
   Tailnet).
 
 ## Supported Operating Systems
