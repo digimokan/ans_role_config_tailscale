@@ -76,7 +76,7 @@ a server), define a `server` tag.
 1. Go to the [Access Control Page](https://login.tailscale.com/admin/acls/visual/tailscale-ssh).
 
 2. Add a new rule with source `autogroup:member`, destination `tag:server`,
-   users `root`+`autogroup:nonroot`, action `check`, and `checkPeriod` `12h0m0s`.
+   users `root`+`autogroup:nonroot`, and action `accept`.
 
 #### Add Auth Keys
 
