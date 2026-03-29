@@ -12,6 +12,8 @@
       --ssh={{ 'true' if cfg_tailscale_advertise_ssh_server else 'false' }}
       --advertise-connector={{ 'true' if cfg_tailscale_advertise_app_connector else 'false' }}
       --shields-up={{ 'true' if cfg_tailscale_shields_up else 'false' }}
+  register: tailscale_up_result
+  changed_when: tailscale_up_result.rc != 0
   become: true
   become_user: root
 
